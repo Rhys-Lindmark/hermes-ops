@@ -1,0 +1,69 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index 3bc2e85..4fa7a67 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -38,7 +38,7 @@ dependencies = [
+   # user picks that backend. Smaller `dependencies` = smaller blast
+   # radius for the next supply-chain attack.
+   "openai==2.24.0",
+-  "certifi==2026.5.20",
++  "certifi==2026.10.19",
+   "python-dotenv==1.2.2",
+   "fire==0.7.1",
+   "httpx[socks]==0.28.1",
+@@ -352,7 +352,7 @@ override-dependencies = [
+   "pynacl>=1.6,<1.7",
+ ]
+ exclude-newer = "14 days"
+-exclude-newer-package = { vercel = false, nemo-relay = false, huggingface_hub = false }
++exclude-newer-package = { vercel = false, nemo-relay = false, huggingface_hub = false, certifi = false }
+ 
+ [tool.setuptools]
+ # Top-level single-file modules (not packages). Without this, uv2nix's
+diff --git a/uv.lock b/uv.lock
+index c7aa584..5753747 100644
+--- a/uv.lock
++++ b/uv.lock
+@@ -12,8 +12,9 @@ exclude-newer = "0001-01-01T00:00:00Z" # This has no effect and is included for
+ exclude-newer-span = "P14D"
+ 
+ [options.exclude-newer-package]
+-nemo-relay = false
++certifi = false
+ vercel = false
++nemo-relay = false
+ huggingface-hub = false
+ 
+ [manifest]
+@@ -602,11 +603,11 @@ wheels = [
+ 
+ [[package]]
+ name = "certifi"
+-version = "2026.5.20"
++version = "2026.10.19"
+ source = { registry = "https://pypi.org/simple" }
+-sdist = { url = "https://files.pythonhosted.org/packages/f3/ce/ee2ecad540810a79593028e88299baeae54d346cc7a0d94b6199988b89b1/certifi-2026.5.20.tar.gz", hash = "sha256:69dea482ab64caa7b9f6aba1c6bf48bb6a5448d1c0f1b17ab42ad8c763a5344d", size = 135422, upload-time = "2026-05-20T11:46:50.073Z" }
++sdist = { url = "https://files.pythonhosted.org/packages/a6/bd/1436c50cc46699de0230fbaacc1d1de7bfec413176099949e9d5112e88f2/certifi-2026.10.19.tar.gz", hash = "sha256:035c1e85572b141bf1c3a3eff0e33a8eb74917522f2559075ff8d2fea780a1ae", size = 137598, upload-time = "2026-10-20T02:24:16.604Z" }
+ wheels = [
+-    { url = "https://files.pythonhosted.org/packages/59/8c/57e832b7af6d7c5abe66eb3fbe3a3a32f4d11ea23a1aa7131371035be991/certifi-2026.5.20-py3-none-any.whl", hash = "sha256:3c52e209ba0a4ad7aebe60436a4ab349c39e1e602e8c134221e546902ad25897", size = 134134, upload-time = "2026-05-20T11:46:48.578Z" },
++    { url = "https://files.pythonhosted.org/packages/c4/51/29046e48f693c54e5b7412216d447a1d8362c9653148d98c02cdf65fa733/certifi-2026.10.19-py3-none-any.whl", hash = "sha256:42d35340cc5b9ba78e818ddbff0c5b1c2b779de448a340fd1b989f5fa8670e1b", size = 136464, upload-time = "2026-10-20T02:24:15.072Z" },
+ ]
+ 
+ [[package]]
+@@ -1807,7 +1808,7 @@ requires-dist = [
+     { name = "azure-identity", marker = "extra == 'azure-identity'", specifier = "==1.25.3" },
+     { name = "boto3", marker = "extra == 'bedrock'", specifier = "==1.42.89" },
+     { name = "brotlicffi", marker = "extra == 'messaging'", specifier = "==1.2.0.1" },
+-    { name = "certifi", specifier = "==2026.5.20" },
++    { name = "certifi", specifier = "==2026.10.19" },
+     { name = "concurrent-log-handler", marker = "sys_platform == 'win32'", specifier = "==0.9.29" },
+     { name = "croniter", specifier = "==6.0.0" },
+     { name = "cryptography", specifier = "==48.0.1" },
+@@ -2687,6 +2688,7 @@ wheels = [
+ name = "nemo-relay"
+ version = "0.6.0"
+ source = { registry = "https://pypi.org/simple" }
++sdist = { url = "https://files.pythonhosted.org/packages/16/db/44d7258ee620c5cce6dc588983fcb11be3ee03ae71089a65686c14d9ee02/nemo_relay-0.6.0.tar.gz", hash = "sha256:f3d3088019609bc953357b5598a47481dc3e7dc8f11ecf27002ede251f37eb7b", size = 1071046, upload-time = "2026-08-03T14:55:49.702Z" }
+ wheels = [
+     { url = "https://files.pythonhosted.org/packages/25/65/d320016505457cc30971f575e8dadffb923b7cfc780ab8bb25a4ce9d305c/nemo_relay-0.6.0-cp311-abi3-macosx_11_0_arm64.whl", hash = "sha256:ad5dae6febf6532d7b113abc2a404679c8feffc499df3034b93d9a078185d2bb", size = 9917779, upload-time = "2026-07-22T20:07:48.961Z" },
+     { url = "https://files.pythonhosted.org/packages/ae/c0/f33250e71c4206da1b339072893f9a1e39295fe1aceb9a2fef4b8620a0f2/nemo_relay-0.6.0-cp311-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:c0cd9570f64c6956fe3bfb82af1cdb3ee70cb50b51098cdb0de831c3f9b4e904", size = 8888375, upload-time = "2026-07-22T20:07:51.049Z" },

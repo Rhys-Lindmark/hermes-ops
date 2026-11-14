@@ -1,0 +1,22 @@
+{
+  "upstream": "https://github.com/NousResearch/hermes-agent.git",
+  "commit": "4b60979dc188655eb4fb81abf292890147ec2d4c",
+  "captured_at": "2026-11-14",
+  "sandbox_image": "hermes-security:20261021",
+  "excluded": [
+    "credentials",
+    "authentication state",
+    "conversations and sessions",
+    "memories",
+    "databases",
+    "cron task state",
+    "sandbox personal files",
+    "logs",
+    "caches",
+    "dependencies",
+    "skill backup archives",
+    "archived third-party skills",
+    "runtime and curator metadata",
+    "server addresses and account paths"
+  ]
+}
